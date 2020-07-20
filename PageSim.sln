@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageSim", "PageSim\PageSim.csproj", "{1E1F11B2-A3B8-4EE7-A435-5E946A65D460}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E1F11B2-A3B8-4EE7-A435-5E946A65D460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1F11B2-A3B8-4EE7-A435-5E946A65D460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1F11B2-A3B8-4EE7-A435-5E946A65D460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1F11B2-A3B8-4EE7-A435-5E946A65D460}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6556BBD4-9F73-48EF-A293-2AA72F009CB4}
+	EndGlobalSection
+EndGlobal
