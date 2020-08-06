@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Simulador de Páginas de Memoria Virtual")]
-[assembly: AssemblyDescription("utal-2020-1-acdc-t3-t4")]
+[assembly: AssemblyDescription("utal-2020-1-acdc-t2")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("vichoste")]
 [assembly: AssemblyProduct("")]
