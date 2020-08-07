@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace PageSim.Algorithms {
 	public class FirstInFirstOut : IAlgorithmStrategy {
-		public void Execute(VirtualMemory virtualMemory, string[] pageSequence) {
-
+		public int Execute(VirtualMemory virtualMemory, string[] pageSequence) {
+			return 0;
 		}
 	}
 }

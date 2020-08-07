@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace PageSim.Algorithms {
 	public class LeastRecentlyUsed : IAlgorithmStrategy {
-		public void Execute(VirtualMemory virtualMemory, string[] pageSequence) => throw new NotImplementedException();
+		public int Execute(VirtualMemory virtualMemory, string[] pageSequence) => throw new NotImplementedException();
 	}
 }

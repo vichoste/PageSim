@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using PageSim.Arguments;
 using PageSim.Structures;
 using System.IO;
+using PageSim.Algorithms;
 
 namespace PageSim {
 	class Program {
@@ -42,7 +43,10 @@ namespace PageSim {
 			if (CheckOptions(options)) {
 				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity);
 				var pageSequence = File.ReadAllLines(options.PageSequenceFile);
-
+				var algorithmContext = new AlgorithmContext(virtualMemory, pageSequence);
+				algorithmContext.AlgorithmStrategy = new FirstInFirstOut();
+				var missCount = algorithmContext.Execute();
+				Console.WriteLine(missCount);
 			}
 		}
 		/// <summary>

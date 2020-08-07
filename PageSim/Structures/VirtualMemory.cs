@@ -9,9 +9,13 @@ namespace PageSim.Structures {
 	/// Represents the virtual memory
 	/// </summary>
 	public class VirtualMemory {
-		// Pages inside the virtual memory
+		/// <summary>
+		/// Pages inside the virtual memory
+		/// </summary>
 		private int[] _PageReferences;
-		// Total capacity of the virtual memory
+		/// <summary>
+		/// Total capacity of the virtual memory
+		/// </summary>
 		private readonly int _Capacity;
 		/// <summary>
 		/// Creates a new instance of a virtual memory
