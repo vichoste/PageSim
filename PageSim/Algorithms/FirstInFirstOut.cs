@@ -44,6 +44,8 @@ namespace PageSim.Algorithms {
 					Console.WriteLine($"Posición a reemplazar dentro de la memoria virtual: {indexToReplace}");
 					virtualMemory[indexToReplace] = page;
 					missCount++;
+				} else {
+					Console.WriteLine("(i) Hit (i)");
 				}
 			}
 			return missCount;
