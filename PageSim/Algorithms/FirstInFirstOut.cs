@@ -30,7 +30,7 @@ namespace PageSim.Algorithms {
 					virtualMemory[i++] = page;
 					continue;
 				}
-				// While the queue is full
+				// While the queue is full and we have a miss
 				if (virtualMemory.FindPage(page) == -1) {
 					var pageToReplace = queue.Dequeue();
 					var indexToReplace = virtualMemory.FindPage(pageToReplace);
