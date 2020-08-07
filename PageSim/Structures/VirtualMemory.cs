@@ -26,10 +26,19 @@ namespace PageSim.Structures {
 				this._PageReferences[i] = -1;
 			}
 		}
+		/// <summary>
+		/// Gets a page inside the virtual memory page references.
+		/// </summary>
+		/// <param name="i">Index</param>
+		/// <returns>Page number</returns>
 		public int this[int i] {
 			get => this._PageReferences[i];
 			set => this._PageReferences[i] = value;
 		}
+		/// <summary>
+		/// Gets the current available capacity of the virtual memory.
+		/// </summary>
+		/// <returns>Current free space</returns>
 		public int GetCurrentFreeCapacity() {
 			var usedMemory = 0;
 			foreach (var p in this._PageReferences) {

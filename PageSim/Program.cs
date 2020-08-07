@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PageSim.Arguments;
 using PageSim.Structures;
+using System.IO;
 
 namespace PageSim {
 	class Program {
@@ -40,8 +41,8 @@ namespace PageSim {
 		static void RunOptions(Options options) {
 			if (CheckOptions(options)) {
 				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity);
-				virtualMemory[1] = 2;
-				Console.WriteLine(virtualMemory[1]);
+				var pageSequence = File.ReadAllLines(options.PageSequenceFile);
+
 			}
 		}
 		/// <summary>
