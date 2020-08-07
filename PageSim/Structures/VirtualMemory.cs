@@ -12,7 +12,7 @@ namespace PageSim.Structures {
 		/// <summary>
 		/// Pages inside the virtual memory
 		/// </summary>
-		private int[] _PageReferences;
+		private readonly string[] _PageReferences;
 		/// <summary>
 		/// Total capacity of the virtual memory
 		/// </summary>
@@ -23,11 +23,11 @@ namespace PageSim.Structures {
 		/// <param name="capacity">Sets the total capacity</param>
 		public VirtualMemory(int capacity) {
 			// Init
-			this._PageReferences = new int[capacity / 4];
+			this._PageReferences = new string[capacity / 4];
 			this._Capacity = capacity;
 			// Populate the references with "null" references
 			for (var i = 0; i < this._PageReferences.Length; i++) {
-				this._PageReferences[i] = -1;
+				this._PageReferences[i] = "null";
 			}
 		}
 		/// <summary>
@@ -35,7 +35,7 @@ namespace PageSim.Structures {
 		/// </summary>
 		/// <param name="i">Index</param>
 		/// <returns>Page number</returns>
-		public int this[int i] {
+		public string this[int i] {
 			get => this._PageReferences[i];
 			set => this._PageReferences[i] = value;
 		}
@@ -45,8 +45,8 @@ namespace PageSim.Structures {
 		/// <returns>Current free space</returns>
 		public int GetCurrentFreeCapacity() {
 			var usedMemory = 0;
-			foreach (var p in this._PageReferences) {
-				if (p != -1) {
+			foreach (var pr in this._PageReferences) {
+				if (string.Compare(pr, "null") != 0) {
 					usedMemory += 4;
 				}
 			}
