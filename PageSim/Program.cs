@@ -41,6 +41,7 @@ namespace PageSim {
 		/// <param name="algorithmContext">Algorithm context</param>
 		/// <param name="algorithmStrategy">Algorithm to run</param>
 		static void RunIndividualAlgorithm(AlgorithmContext algorithmContext, IAlgorithmStrategy algorithmStrategy) {
+			algorithmContext.AlgorithmStrategy = algorithmStrategy;
 			var missCount = algorithmContext.Execute();
 			Console.WriteLine(missCount);
 		}
