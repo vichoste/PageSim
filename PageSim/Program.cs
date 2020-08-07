@@ -8,8 +8,28 @@ using PageSim.Arguments;
 
 namespace PageSim {
 	class Program {
+		/// <summary>
+		/// Checks the correctness of the options.
+		/// </summary>
+		/// <param name="options">Input parameters</param>
+		/// <returns>True if everything is fine</returns>
 		static bool CheckOptions(Options options) {
-
+			string[] validAlgorithms = { "FIFO" , "LRU", "CLK", "ALL" };
+			// Check if the user specified a valid algorithm
+			if (!validAlgorithms.Contains(options.Algorithm)) {
+				Console.WriteLine("(!) El algoritmo debe ser FIFO, LRU, CLK o ALL (!)");
+				return false;
+			}
+			// Check if the file is a *.txt
+			if (string.Compare(options.PageSequenceFile.Split('.')[1], "txt") != 0) {
+				Console.WriteLine("(!) El archivo debe ser un *.txt (!)");
+				return false;
+			}
+			// Check if the total amount of memory used by the pages (in KB) doesn't exceed the available memory
+			if (options.PageCount * 4 > options.VirtualMemoryCapacity) {
+				Console.WriteLine("(!) La cantidad de memoria ocupada por las páginas excede la memoria virtual disponible (!)");
+				return false;
+			}
 			return true;
 		}
 		/// <summary>
