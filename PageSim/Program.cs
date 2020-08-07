@@ -41,7 +41,7 @@ namespace PageSim {
 		/// <param name="options">Input parameters</param>
 		static void RunOptions(Options options) {
 			if (CheckOptions(options)) {
-				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity);
+				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity, options.PageCount);
 				var pageSequence = File.ReadAllLines(options.PageSequenceFile);
 				var algorithmContext = new AlgorithmContext(virtualMemory, pageSequence) {
 					AlgorithmStrategy = new FirstInFirstOut()

@@ -18,13 +18,25 @@ namespace PageSim.Structures {
 		/// </summary>
 		private readonly int _Capacity;
 		/// <summary>
+		/// Amount of page references inside the virtual memory.
+		/// </summary>
+		public int Count {
+			get => this._PageReferences.Length;
+			private set { }
+		}
+		/// <summary>
+		/// Amount of pages.
+		/// </summary>
+		public int PageCount { get; private set; }
+		/// <summary>
 		/// Creates a new instance of a virtual memory
 		/// </summary>
 		/// <param name="capacity">Sets the total capacity</param>
-		public VirtualMemory(int capacity) {
+		public VirtualMemory(int capacity, int pageCount) {
 			// Init
 			this._PageReferences = new string[capacity / 4];
 			this._Capacity = capacity;
+			this.PageCount = pageCount;
 			// Populate the references with "null" references
 			for (var i = 0; i < this._PageReferences.Length; i++) {
 				this._PageReferences[i] = "null";

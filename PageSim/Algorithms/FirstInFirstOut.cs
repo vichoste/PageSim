@@ -10,8 +10,12 @@ namespace PageSim.Algorithms {
 		public int Execute(VirtualMemory virtualMemory, string[] pageSequence) {
 			var missCount = 0;
 			var queue = new Queue<string>();
-			foreach (var ps in pageSequence) {
-				queue.Enqueue(ps);
+			var i = 0;
+			foreach (var page in pageSequence) {
+				queue.Enqueue(page);
+				if (i != virtualMemory.PageCount) {
+					virtualMemory[i++] = page;
+				}
 			}
 			return missCount;
 		}
