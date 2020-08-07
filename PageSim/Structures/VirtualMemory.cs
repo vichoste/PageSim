@@ -64,5 +64,11 @@ namespace PageSim.Structures {
 			}
 			return this._Capacity - usedMemory;
 		}
+		/// <summary>
+		/// Finds the index of a page.
+		/// </summary>
+		/// <param name="page">Page to find</param>
+		/// <returns>Index of the found page</returns>
+		public int FindPage(string page) => Array.IndexOf(this._PageReferences, page);
 	}
 }

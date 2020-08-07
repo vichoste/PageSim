@@ -13,8 +13,15 @@ namespace PageSim.Algorithms {
 			var i = 0;
 			foreach (var page in pageSequence) {
 				queue.Enqueue(page);
-				if (i != virtualMemory.PageCount) {
+				if (i < virtualMemory.PageCount) {
 					virtualMemory[i++] = page;
+					continue;
+				}
+				if (virtualMemory.FindPage(page) == -1) {
+					var pageToReplace = queue.Dequeue();
+					var indexToReplace = virtualMemory.FindPage(pageToReplace);
+					virtualMemory[indexToReplace] = page;
+					missCount++;
 				}
 			}
 			return missCount;
