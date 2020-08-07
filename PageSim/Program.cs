@@ -26,9 +26,9 @@ namespace PageSim {
 				Console.WriteLine("(!) El archivo debe ser un *.txt (!)");
 				return false;
 			}
-			// Check if the total amount of memory used by the pages (in KB) doesn't exceed the available memory
-			if (options.PageCount * 4 > options.VirtualMemoryCapacity) {
-				Console.WriteLine("(!) La cantidad de memoria ocupada por las páginas excede la memoria virtual disponible (!)");
+			// Check if the memory amount is a multiple of 4
+			if (options.VirtualMemoryCapacity % 4 != 0) {
+				Console.WriteLine("(!) La cantidad de memoria no es múltiplo de 4 (!)");
 				return false;
 			}
 			return true;
@@ -39,7 +39,7 @@ namespace PageSim {
 		/// <param name="options">Input parameters</param>
 		static void RunOptions(Options options) {
 			if (CheckOptions(options)) {
-				var virtualMemory = new VirtualMemory(options.PageCount, options.VirtualMemoryCapacity);
+				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity);
 			}
 		}
 		/// <summary>

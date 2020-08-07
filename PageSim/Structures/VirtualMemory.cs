@@ -10,31 +10,30 @@ namespace PageSim.Structures {
 	/// </summary>
 	public class VirtualMemory {
 		// Pages inside the virtual memory
-		private int[] _Pages;
+		private int[] _PageReferences;
 		// Total capacity of the virtual memory
-		private int _Capacity;
+		private readonly int _Capacity;
 		/// <summary>
 		/// Creates a new instance of a virtual memory
 		/// </summary>
-		/// <param name="pageAmount">Sets the amount of pages</param>
 		/// <param name="capacity">Sets the total capacity</param>
-		public VirtualMemory(int pageAmount, int capacity) {
+		public VirtualMemory(int capacity) {
 			// Init
-			this._Pages = new int[pageAmount];
+			this._PageReferences = new int[capacity / 4];
 			this._Capacity = capacity;
-			// Populate the pages with "null" references
-			for (var i = 0; i < this._Pages.Length; i++) {
-				this._Pages[i] = 0;
+			// Populate the references with "null" references
+			for (var i = 0; i < this._PageReferences.Length; i++) {
+				this._PageReferences[i] = -1;
 			}
 		}
 		public int this[int i] {
-			get => this._Pages[i];
-			set => this._Pages[i] = value;
+			get => this._PageReferences[i];
+			set => this._PageReferences[i] = value;
 		}
 		public int GetCurrentFreeCapacity() {
 			var usedMemory = 0;
-			foreach (var p in this._Pages) {
-				if (p != 0) {
+			foreach (var p in this._PageReferences) {
+				if (p != -1) {
 					usedMemory += 4;
 				}
 			}
