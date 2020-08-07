@@ -40,6 +40,8 @@ namespace PageSim {
 		static void RunOptions(Options options) {
 			if (CheckOptions(options)) {
 				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity);
+				virtualMemory[1] = 2;
+				Console.WriteLine(virtualMemory[1]);
 			}
 		}
 		/// <summary>
