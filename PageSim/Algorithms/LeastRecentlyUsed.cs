@@ -26,12 +26,12 @@ namespace PageSim.Algorithms {
 				} else { // If the page exists, increment its counter
 					hashtable[page] = (int)hashtable[page] + 1;
 				}
-				// While the queue is not full
+				// While the virtual memory is not full
 				if (i < virtualMemory.PageCount) {
 					virtualMemory[i++] = page;
 					continue;
 				}
-				// While the queue is full and we have a miss
+				// While the virtual memory is full and we have a miss
 				if (virtualMemory.FindPage(page) == -1) {
 					var pageToReplace = "MinKey";
 					var currentMin = int.MaxValue;
