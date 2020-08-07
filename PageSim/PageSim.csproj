@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\AlgorithmContext.cs" />
+    <Compile Include="Algorithms\Clock.cs" />
+    <Compile Include="Algorithms\FirstInFirstOut.cs" />
+    <Compile Include="Algorithms\IAlgorithmStrategy.cs" />
+    <Compile Include="Algorithms\LeastRecentlyUsed.cs" />
+    <Compile Include="Arguments\Options.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
