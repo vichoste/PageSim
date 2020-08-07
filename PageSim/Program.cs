@@ -43,7 +43,7 @@ namespace PageSim {
 		static void RunIndividualAlgorithm(AlgorithmContext algorithmContext, IAlgorithmStrategy algorithmStrategy) {
 			algorithmContext.AlgorithmStrategy = algorithmStrategy;
 			var missCount = algorithmContext.Execute();
-			Console.WriteLine(missCount);
+			Console.WriteLine($"Cantidad de misses: {missCount}");
 		}
 		/// <summary>
 		/// Starts the program.
