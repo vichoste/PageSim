@@ -8,15 +8,18 @@ using PageSim.Arguments;
 
 namespace PageSim {
 	class Program {
+		static bool CheckOptions(Options options) {
+
+			return true;
+		}
 		/// <summary>
 		/// Starts the program.
 		/// </summary>
 		/// <param name="options">Input parameters</param>
 		static void RunOptions(Options options) {
-			var algorithm = options.Algorithm;
-			var pageSequenceFile = options.PageSequenceFile;
-			var pageCount = options.PageCount;
-			var virtualMemoryAmount = options.VirtualMemoryAmount;
+			if (CheckOptions(options)) {
+
+			}
 		}
 		/// <summary>
 		/// Main function.
