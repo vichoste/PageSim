@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PageSim.Algorithms {
-	class LeastRecentlyUsed : IAlgorithmStrategy {
+	public class LeastRecentlyUsed : IAlgorithmStrategy {
 		public void Execute() => throw new NotImplementedException();
 	}
 }
