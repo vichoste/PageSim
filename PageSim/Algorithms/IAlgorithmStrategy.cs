@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace PageSim.Algorithms {
 	public interface IAlgorithmStrategy {
-		void Run();
+		void Execute();
 	}
 }

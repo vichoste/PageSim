@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PageSim.Algorithms {
-	class FirstInFirstOut {
+	class FirstInFirstOut : IAlgorithmStrategy {
+		public void Execute() => throw new NotImplementedException();
 	}
 }
