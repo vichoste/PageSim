@@ -36,6 +36,15 @@ namespace PageSim {
 			return true;
 		}
 		/// <summary>
+		/// Runs an individual algorithm.
+		/// </summary>
+		/// <param name="algorithmContext">Algorithm context</param>
+		/// <param name="algorithmStrategy">Algorithm to run</param>
+		static void RunIndividualAlgorithm(AlgorithmContext algorithmContext, IAlgorithmStrategy algorithmStrategy) {
+			var missCount = algorithmContext.Execute();
+			Console.WriteLine(missCount);
+		}
+		/// <summary>
 		/// Starts the program.
 		/// </summary>
 		/// <param name="options">Input parameters</param>
@@ -43,11 +52,20 @@ namespace PageSim {
 			if (CheckOptions(options)) {
 				var virtualMemory = new VirtualMemory(options.VirtualMemoryCapacity, options.PageCount);
 				var pageSequence = File.ReadAllLines(options.PageSequenceFile);
-				var algorithmContext = new AlgorithmContext(virtualMemory, pageSequence) {
-					AlgorithmStrategy = new FirstInFirstOut()
-				};
-				var missCount = algorithmContext.Execute();
-				Console.WriteLine(missCount);
+				var algorithmContext = new AlgorithmContext(virtualMemory, pageSequence);
+				switch (options.Algorithm) {
+					case "FIFO":
+						RunIndividualAlgorithm(algorithmContext, new FirstInFirstOut());
+						break;
+					case "LRU":
+						RunIndividualAlgorithm(algorithmContext, new LeastRecentlyUsed());
+						break;
+					case "CLK":
+						RunIndividualAlgorithm(algorithmContext, new Clock());
+						break;
+					case "ALL":
+						break;
+				}
 			}
 		}
 		/// <summary>
