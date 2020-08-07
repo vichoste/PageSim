@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PageSim.Arguments;
+using PageSim.Structures;
 
 namespace PageSim {
 	class Program {
@@ -38,7 +39,7 @@ namespace PageSim {
 		/// <param name="options">Input parameters</param>
 		static void RunOptions(Options options) {
 			if (CheckOptions(options)) {
-
+				var virtualMemory = new VirtualMemory(options.PageCount, options.VirtualMemoryCapacity);
 			}
 		}
 		/// <summary>

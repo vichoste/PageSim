@@ -12,5 +12,6 @@ namespace PageSim.Structures {
 			this._Pages = new int[pageAmount];
 			this._Capacity = capacity;
 		}
+
 	}
 }
