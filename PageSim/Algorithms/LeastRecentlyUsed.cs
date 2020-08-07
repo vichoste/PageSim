@@ -20,6 +20,10 @@ namespace PageSim.Algorithms {
 			var missCount = 0;
 			var i = 0;
 			foreach (var page in pageSequence) {
+				foreach (var k in hashtable) {
+					Console.WriteLine($"{page} - {hashtable[page]}");
+				}
+				Console.WriteLine("===");
 				// If the page is not added, add it
 				if (!hashtable.ContainsKey(page)) {
 					hashtable.Add(page, 1);
