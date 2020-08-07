@@ -42,14 +42,11 @@ namespace PageSim.Algorithms {
 						}
 					}
 					var indexToReplace = virtualMemory.FindPage(pageToReplace);
+					Console.WriteLine(indexToReplace);
 					virtualMemory[indexToReplace] = page;
 					hashtable.Remove(pageToReplace);
 					missCount++;
 				}
-				foreach (var k in hashtable.Keys) {
-					Console.WriteLine($"{k} - {hashtable[k]}");
-				}
-				Console.WriteLine("----------");
 			}
 			return missCount;
 		}
