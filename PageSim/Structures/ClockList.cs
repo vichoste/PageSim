@@ -10,17 +10,20 @@ namespace PageSim.Structures {
 	/// </summary>
 	public class ClockList {
 		class Node {
-			string _Page;
-			bool _R;
-			Node _Next;
-			public Node() => this._R = true;
+			public string Page { get; set;  }
+			public bool IsClean { get; set; }
+			public Node Next;
+			public Node() => this.IsClean = true;
 		}
-		private Node[] _Nodes;
+		private readonly Node[] _Nodes;
 		public ClockList(int pageCount) {
 			this._Nodes = new Node[pageCount];
-			for (var i = 0; i < pageCount; i++) {
-				this._Nodes[i] = new Node();
+			this._Nodes[0] = new Node();
+			for (var i = 0; i < pageCount - 1; i++) {
+				this._Nodes[i + 1] = new Node();
+				this._Nodes[i].Next = this._Nodes[i + 1];
 			}
+			this._Nodes[pageCount - 1].Next = this._Nodes[0];
 		}
 	}
 }
