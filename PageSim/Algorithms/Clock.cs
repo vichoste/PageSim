@@ -24,10 +24,13 @@ namespace PageSim.Algorithms {
 				if (i < virtualMemory.PageCount) {
 					virtualMemory[i++] = page;
 					Console.WriteLine($"Página {page} agregada a la memoria virtual en la posición {i}");
+					clockList.InsertPage(page);
+					Console.WriteLine($"Página {page} insertada en la lista circular");
 					continue;
 				}
 				// While the virtual memory is full and we have a miss
 				if (virtualMemory.FindPage(page) == -1) {
+
 					Console.WriteLine($"Página a reemplazar: {pageToReplace}");
 					var indexToReplace = virtualMemory.FindPage(pageToReplace);
 					Console.WriteLine($"Posición a reemplazar dentro de la memoria virtual: {indexToReplace}");
