@@ -70,21 +70,35 @@ namespace PageSim {
 						Console.WriteLine($"Cantidad de misses CLK: {missCount}");
 						break;
 					case "ALL":
+						var currentMin = int.MaxValue;
+						var currentMinAlgorithm = "Ninguno";
 						// Execute FIFO
 						var missCountFIFO = RunIndividualAlgorithm(algorithmContext, new FirstInFirstOut());
+						if (missCountFIFO < currentMin) {
+							currentMin = missCountFIFO;
+							currentMinAlgorithm = "FIFO";
+						}
 						// Execute LRU
 						var virtualMemory2 = new VirtualMemory(options.VirtualMemoryCapacity, options.PageCount);
 						algorithmContext.VirtualMemory = virtualMemory2;
 						var missCountLRU = RunIndividualAlgorithm(algorithmContext, new LeastRecentlyUsed());
+						if (missCountLRU < currentMin) {
+							currentMin = missCountLRU;
+							currentMinAlgorithm = "LRU";
+						}
 						// Execute CLK
 						var virtualMemory3 = new VirtualMemory(options.VirtualMemoryCapacity, options.PageCount);
 						algorithmContext.VirtualMemory = virtualMemory3;
 						var missCountCLK = RunIndividualAlgorithm(algorithmContext, new Clock());
+						if (missCountCLK < currentMin) {
+							currentMin = missCountCLK;
+							currentMinAlgorithm = "CLK";
+						}
 						// Print results
 						Console.WriteLine($"Cantidad de misses FIFO: {missCountFIFO}");
 						Console.WriteLine($"Cantidad de misses LRU: {missCountLRU}");
-						Console.WriteLine($"Cantidad de misses LRU: {missCountCLK}");
-						Console.WriteLine($"Menor cantidad de misses: ");
+						Console.WriteLine($"Cantidad de misses CLK: {missCountCLK}");
+						Console.WriteLine($"{currentMinAlgorithm} es el que tiene menos misses.");
 						break;
 				}
 			}
