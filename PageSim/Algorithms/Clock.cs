@@ -30,7 +30,9 @@ namespace PageSim.Algorithms {
 				}
 				// While the virtual memory is full and we have a miss
 				if (virtualMemory.FindPage(page) == -1) {
-
+					Console.WriteLine("(i) Miss (i)");
+					var pageToReplace = clockList.ReplacePage(page);
+					Console.WriteLine($"Página {pageToReplace} reemplazada por {page} en la lista circular");
 					Console.WriteLine($"Página a reemplazar: {pageToReplace}");
 					var indexToReplace = virtualMemory.FindPage(pageToReplace);
 					Console.WriteLine($"Posición a reemplazar dentro de la memoria virtual: {indexToReplace}");

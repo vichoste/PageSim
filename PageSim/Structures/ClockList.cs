@@ -28,12 +28,14 @@ namespace PageSim.Structures {
 			this._Nodes[this._CurrentNode].IsClean = true;
 			this._CurrentNode = this._CurrentNode == this._Nodes.Length - 1 ? 0 : this._CurrentNode += 1;
 		}
-		public void ReplacePage(string newPage) {
+		public string ReplacePage(string newPage) {
 			while (this._Nodes[this._CurrentNode].IsClean) {
 				this._Nodes[this._CurrentNode].IsClean = false;
 				this._CurrentNode = this._CurrentNode == this._Nodes.Length - 1 ? 0 : this._CurrentNode += 1;
 			}
+			var pageToReplace = this._Nodes[this._CurrentNode].Page;
 			this._Nodes[this._CurrentNode].Page = newPage;
+			return pageToReplace;
 		}
 	}
 }
