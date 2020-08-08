@@ -9,16 +9,18 @@ namespace PageSim.Structures {
 	/// Defines the structure for the clock
 	/// </summary>
 	public class ClockList {
-		private class Node {
-			private string _Page;
-			private bool _R;
-			public Node(string page) {
-				this._Page = page;
-				this._R = true;
-			}
+		class Node {
+			string _Page;
+			bool _R;
+			Node _Next;
+			public Node() => this._R = true;
 		}
+		private Node[] _Nodes;
 		public ClockList(int pageCount) {
-
+			this._Nodes = new Node[pageCount];
+			for (var i = 0; i < pageCount; i++) {
+				this._Nodes[i] = new Node();
+			}
 		}
 	}
 }
