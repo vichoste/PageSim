@@ -33,6 +33,11 @@ namespace PageSim {
 				Console.WriteLine("(!) La cantidad de memoria no es múltiplo de 4 (!)");
 				return false;
 			}
+			// Check the page count memory exceeds the virtual memory capacity
+			if (options.PageCount * 4 > options.VirtualMemoryCapacity) {
+				Console.WriteLine("(!) La cantidad de páginas excede a la memoria virtual disponible (!)");
+				return false;
+			}
 			return true;
 		}
 		/// <summary>
