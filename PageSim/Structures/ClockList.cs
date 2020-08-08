@@ -27,6 +27,7 @@ namespace PageSim.Structures {
 			this._Nodes[this._CurrentNode].Page = page;
 			this._Nodes[this._CurrentNode].IsClean = true;
 			this._CurrentNode = this._CurrentNode == this._Nodes.Length - 1 ? 0 : this._CurrentNode += 1;
+			Console.WriteLine($"Current node: {this._CurrentNode}");
 		}
 		public string ReplacePage(string newPage) {
 			while (this._Nodes[this._CurrentNode].IsClean) {
@@ -35,6 +36,7 @@ namespace PageSim.Structures {
 			}
 			var pageToReplace = this._Nodes[this._CurrentNode].Page;
 			this._Nodes[this._CurrentNode].Page = newPage;
+			this._Nodes[this._CurrentNode].IsClean = true;
 			return pageToReplace;
 		}
 	}
