@@ -35,7 +35,7 @@ namespace PageSim {
 			}
 			// Check the page count memory exceeds the virtual memory capacity
 			if (options.PageCount * 4 > options.VirtualMemoryCapacity) {
-				Console.WriteLine("(!) La cantidad de páginas excede a la memoria virtual disponible (!)");
+				Console.WriteLine("(!) La cantidad de referencias a páginas excede a la memoria virtual disponible (!)");
 				return false;
 			}
 			return true;

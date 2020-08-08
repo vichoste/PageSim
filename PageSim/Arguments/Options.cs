@@ -24,7 +24,7 @@ namespace PageSim.Arguments {
 		/// <summary>
 		/// Amount of pages.
 		/// </summary>
-		[Value(1, Required = true, MetaName = "Cantidad de páginas", HelpText = "Establece la cantidad de páginas que contendrá la memoria virtual")]
+		[Value(1, Required = true, MetaName = "Cantidad de referencia de páginas", HelpText = "Establece la cantidad de referencias de páginas que contendrá la memoria virtual")]
 		public int PageCount { get; set; }
 		/// <summary>
 		/// Amount of memory inside of the virtual memory.
