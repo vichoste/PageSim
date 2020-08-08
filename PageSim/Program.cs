@@ -1,13 +1,10 @@
 ﻿using CommandLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PageSim.Algorithms;
 using PageSim.Arguments;
 using PageSim.Structures;
+using System;
 using System.IO;
-using PageSim.Algorithms;
+using System.Linq;
 
 namespace PageSim {
 	class Program {
@@ -17,7 +14,7 @@ namespace PageSim {
 		/// <param name="options">Input parameters</param>
 		/// <returns>True if everything is fine</returns>
 		static bool CheckOptions(Options options) {
-			string[] validAlgorithms = { "FIFO" , "LRU", "CLK", "ALL" };
+			string[] validAlgorithms = { "FIFO", "LRU", "CLK", "ALL" };
 			// Check if the user specified a valid algorithm
 			if (!validAlgorithms.Contains(options.Algorithm)) {
 				Console.WriteLine("(!) El algoritmo debe ser FIFO, LRU, CLK o ALL (!)");
