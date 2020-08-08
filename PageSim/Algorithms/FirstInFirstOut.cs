@@ -15,8 +15,8 @@ namespace PageSim.Algorithms {
 		/// <returns>Amount of misses</returns>
 		public int Execute(VirtualMemory virtualMemory, string[] pageSequence) {
 			var missCount = 0;
-			var queue = new Queue<string>();
 			var i = 0;
+			var queue = new Queue<string>();
 			foreach (var page in pageSequence) {
 				Console.WriteLine("==========================================================");
 				Console.WriteLine($"FIFO Solicitud del procesador para ingresar página {page}");

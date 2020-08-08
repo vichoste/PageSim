@@ -3,7 +3,7 @@ using System;
 
 namespace PageSim.Algorithms {
 	/// <summary>
-	/// Defines the FIFO strategy for page replacement.
+	/// Defines the CLK strategy for page replacement.
 	/// </summary>
 	public class Clock : IAlgorithmStrategy {
 		/// <summary>
@@ -15,6 +15,7 @@ namespace PageSim.Algorithms {
 		public int Execute(VirtualMemory virtualMemory, string[] pageSequence) {
 			var missCount = 0;
 			var i = 0;
+			var clockList = new ClockList(virtualMemory.PageCount);
 			foreach (var page in pageSequence) {
 				Console.WriteLine("==========================================================");
 				Console.WriteLine($"CLK Solicitud del procesador para ingresar página {page}");

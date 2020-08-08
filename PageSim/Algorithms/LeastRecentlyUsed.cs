@@ -3,6 +3,9 @@ using System;
 using System.Collections;
 
 namespace PageSim.Algorithms {
+	/// <summary>
+	/// Defines the LRU strategy for page replacement.
+	/// </summary>
 	public class LeastRecentlyUsed : IAlgorithmStrategy {
 		/// <summary>
 		/// Executes the algorithm.
@@ -11,9 +14,9 @@ namespace PageSim.Algorithms {
 		/// <param name="pageSequence">Page sequence to use</param>
 		/// <returns>Amount of misses</returns>
 		public int Execute(VirtualMemory virtualMemory, string[] pageSequence) {
-			var hashtable = new Hashtable();
 			var missCount = 0;
 			var i = 0;
+			var hashtable = new Hashtable();
 			foreach (var page in pageSequence) {
 				Console.WriteLine("==========================================================");
 				Console.WriteLine($"LRU Solicitud del procesador para ingresar página {page}");

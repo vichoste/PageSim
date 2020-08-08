@@ -25,5 +25,9 @@ namespace PageSim.Structures {
 			}
 			this._Nodes[pageCount - 1].Next = this._Nodes[0];
 		}
+		public string this[int i] {
+			get => this._Nodes[i].Page;
+			set => this._Nodes[i].Page = value;
+		}
 	}
 }
