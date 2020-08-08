@@ -42,10 +42,10 @@ namespace PageSim {
 		/// </summary>
 		/// <param name="algorithmContext">Algorithm context</param>
 		/// <param name="algorithmStrategy">Algorithm to run</param>
-		static void RunIndividualAlgorithm(AlgorithmContext algorithmContext, IAlgorithmStrategy algorithmStrategy) {
+		static int RunIndividualAlgorithm(AlgorithmContext algorithmContext, IAlgorithmStrategy algorithmStrategy) {
 			algorithmContext.AlgorithmStrategy = algorithmStrategy;
 			var missCount = algorithmContext.Execute();
-			Console.WriteLine($"Cantidad de misses: {missCount}");
+			return missCount;
 		}
 		/// <summary>
 		/// Starts the program.
@@ -58,15 +58,33 @@ namespace PageSim {
 				var algorithmContext = new AlgorithmContext(virtualMemory, pageSequence);
 				switch (options.Algorithm) {
 					case "FIFO":
-						RunIndividualAlgorithm(algorithmContext, new FirstInFirstOut());
+						var missCount = RunIndividualAlgorithm(algorithmContext, new FirstInFirstOut());
+						Console.WriteLine($"Cantidad de misses FIFO: {missCount}");
 						break;
 					case "LRU":
-						RunIndividualAlgorithm(algorithmContext, new LeastRecentlyUsed());
+						missCount = RunIndividualAlgorithm(algorithmContext, new LeastRecentlyUsed());
+						Console.WriteLine($"Cantidad de misses LRU: {missCount}");
 						break;
 					case "CLK":
-						RunIndividualAlgorithm(algorithmContext, new Clock());
+						missCount = RunIndividualAlgorithm(algorithmContext, new Clock());
+						Console.WriteLine($"Cantidad de misses CLK: {missCount}");
 						break;
 					case "ALL":
+						// Execute FIFO
+						var missCountFIFO = RunIndividualAlgorithm(algorithmContext, new FirstInFirstOut());
+						// Execute LRU
+						var virtualMemory2 = new VirtualMemory(options.VirtualMemoryCapacity, options.PageCount);
+						algorithmContext.VirtualMemory = virtualMemory2;
+						var missCountLRU = RunIndividualAlgorithm(algorithmContext, new LeastRecentlyUsed());
+						// Execute CLK
+						var virtualMemory3 = new VirtualMemory(options.VirtualMemoryCapacity, options.PageCount);
+						algorithmContext.VirtualMemory = virtualMemory3;
+						var missCountCLK = RunIndividualAlgorithm(algorithmContext, new Clock());
+						// Print results
+						Console.WriteLine($"Cantidad de misses FIFO: {missCountFIFO}");
+						Console.WriteLine($"Cantidad de misses LRU: {missCountLRU}");
+						Console.WriteLine($"Cantidad de misses LRU: {missCountCLK}");
+						Console.WriteLine($"Menor cantidad de misses: ");
 						break;
 				}
 			}

@@ -5,7 +5,7 @@ namespace PageSim.Algorithms {
 		/// <summary>
 		/// Virtual memory.
 		/// </summary>
-		private readonly VirtualMemory _VirtualMemory;
+		public VirtualMemory VirtualMemory { private get; set; }
 		/// <summary>
 		/// Page sequence.
 		/// </summary>
@@ -20,7 +20,7 @@ namespace PageSim.Algorithms {
 		/// <param name="virtualMemory">Virtual memory to use</param>
 		/// <param name="pageSequence">Page sequence to use</param>
 		public AlgorithmContext(VirtualMemory virtualMemory, string[] pageSequence) {
-			this._VirtualMemory = virtualMemory;
+			this.VirtualMemory = virtualMemory;
 			this._PageSequence = pageSequence;
 		}
 		/// <summary>
@@ -29,6 +29,6 @@ namespace PageSim.Algorithms {
 		/// <param name="virtualMemory">Virtual memory to use</param>
 		/// <param name="pageSequence">Page sequence to use</param>
 		/// <returns>Amount of misses</returns>
-		public int Execute() => this.AlgorithmStrategy.Execute(this._VirtualMemory, this._PageSequence);
+		public int Execute() => this.AlgorithmStrategy.Execute(this.VirtualMemory, this._PageSequence);
 	}
 }
